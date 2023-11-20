@@ -7,18 +7,28 @@ Source: https://sketchfab.com/3d-models/free-skybox-in-the-cloud-b270497defe24f9
 Title: FREE - SkyBox In The Cloud
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { a } from "@react-spring/three";
+import skyScene from "../assets/3d/sky.glb";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/sky.glb')
+const Sky = (props) => {
+  const skyref = useRef();
+  const { nodes, materials } = useGLTF(skyScene);
   return (
-    <group {...props} dispose={null}>
+    <a.group ref={skyref} {...props} dispose={null}>
       <group scale={0.01}>
-        <mesh geometry={nodes.Sphere__0.geometry} material={materials['Scene_-_Root']} rotation={[-Math.PI / 2, 0, 0]} scale={50000} />
+        <mesh
+          geometry={nodes.Sphere__0.geometry}
+          material={materials["Scene_-_Root"]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={50000}
+        />
       </group>
-    </group>
-  )
-}
+    </a.group>
+  );
+};
 
-useGLTF.preload('/sky.glb')
+useGLTF.preload("/sky.glb");
+
+export default Sky;

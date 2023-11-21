@@ -170,7 +170,7 @@ export function Island({
           // setCurrentStage(1);
           break;
         default:
-          setCurrentStage(null);
+        /*  setCurrentStage(null); */
       }
     }
   });

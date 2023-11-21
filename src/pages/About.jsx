@@ -1,5 +1,6 @@
 import React from "react";
 import { skills, experiences } from "../constants";
+import CTA from "../components/CTA";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -100,6 +101,9 @@ const About = () => {
           </VerticalTimeline>
         </div>
       </div>
+      <hr className="border-slate-200" />
+
+      <CTA />
     </section>
   );
 };
